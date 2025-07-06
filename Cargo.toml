@@ -1,0 +1,19 @@
+[package]
+name = "docker-cron"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.98"
+bollard = "0.19.1"
+chrono = "0.4.41"
+cron = "0.15.0"
+thiserror = "2.0.12"
+tokio = { version = "^1.46.1", features = ["rt", "signal"] }
+tokio-stream = "0.1.17"
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = [
+    "env-filter",
+    "json",
+    "std",
+] }

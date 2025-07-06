@@ -1,0 +1,3 @@
+[build]
+# tokio_unstable is required for LocalRuntime.
+rustflags = ["--cfg", "tokio_unstable"]
