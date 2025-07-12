@@ -2,6 +2,12 @@
 name = "docker-cron"
 version = "0.1.0"
 edition = "2021"
+description = "Start Docker containers on a cron-compatible schedule"
+license = "MIT"
+repository = "https://github.com/decafcode/docker-cron"
+
+[package.metadata.release]
+publish = false
 
 [dependencies]
 anyhow = "1.0.98"
