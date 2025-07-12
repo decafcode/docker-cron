@@ -1,0 +1,29 @@
+name: Release
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Extract metadata
+        uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 #v5.0.0
+        id: meta
+        with:
+          images: ghcr.io/decafcode/docker-cron
+      - name: Log in to GHCR
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+      - name: Build Docker container
+        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
+        with:
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
