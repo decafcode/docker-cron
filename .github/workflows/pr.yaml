@@ -1,0 +1,9 @@
+name: PR
+on:
+  pull_request: {}
+jobs:
+  pr:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Build Docker container
+        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
