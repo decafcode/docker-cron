@@ -1,6 +1,6 @@
 [package]
 name = "docker-cron"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
 description = "Start Docker containers on a cron-compatible schedule"
 license = "MIT"
