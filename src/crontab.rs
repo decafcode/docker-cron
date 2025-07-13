@@ -112,7 +112,7 @@ fn read_crontab(file: &str) -> Result<Vec<CronJob>, CronTabError> {
     let mut jobs: Vec<CronJob> = Vec::new();
 
     for (line_idx, line) in file.split("\n").enumerate() {
-        let line = line.trim_start();
+        let line = line.trim();
 
         if line.is_empty() || line.starts_with("#") {
             continue;
@@ -197,7 +197,7 @@ mod tests {
         // and added some @alias tests as well.
 
         let jobs = read_crontab(concat!(
-            "       0  5 0 * * *       example_daily\n",
+            "       0  5 0 * * *       example_daily   \n",
             "   # run at 2:15pm on the first of every month\n",
             "\n",
             "       0 15  14 1 * *     example_monthly\n",
